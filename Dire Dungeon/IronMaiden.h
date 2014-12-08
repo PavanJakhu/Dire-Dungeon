@@ -15,8 +15,8 @@ public:
 	void Draw(SpriteBatch& _spriteBatch);
 	bool triggered;
 	float triggerTime;
-protected:	
 	glm::vec4 bounds;
+protected:		
 	int currentTexture;
 	b2Joint* jointOne;
 private:

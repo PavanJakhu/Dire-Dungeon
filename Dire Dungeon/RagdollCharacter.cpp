@@ -3,7 +3,7 @@
 RagdollCharacter::RagdollCharacter(float scale, float _speed, b2Vec2 _position, GameWorld* _world, ResourceManager* _resources) : GameObject(_world){
 	//Load the textures
 	boxTexture = _resources->Load<GLTexture>("Textures/Character/WHITE-BOX.png");
-	headHappyTexture = _resources->Load<GLTexture>("Textures/Character/umer.png");
+	headHappyTexture = _resources->Load<GLTexture>("Textures/Character/happy.png");
 	headSadTexture = _resources->Load<GLTexture>("Textures/Character/surprise.png");
 	headTexture = _resources->Load<GLTexture>("Textures/Character/headCentered.png");
 
@@ -89,7 +89,7 @@ void RagdollCharacter::Update(GameTime& _gameTime) {
 		}
 	}
 
-	if (isContactRagdoll < 1 && startTime > 3 && recentCollision)
+	if (isContactRagdoll < 1 && startTime > 2.5f && recentCollision)
 	{
 		recentCollision = false;
 		startTime = 2;

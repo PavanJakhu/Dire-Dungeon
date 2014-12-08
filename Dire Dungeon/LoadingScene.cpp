@@ -46,10 +46,10 @@ void LoadingScene::LoadTextures(int textureToLoad) {
 	else if (textureToLoad == 3) resources->Load<GLTexture>("Textures/Backgrounds/RepeatingBG.png");
 	else if (textureToLoad == 4) resources->Load<GLTexture>("Textures/Backgrounds/UI.png");
 	else if (textureToLoad == 5) resources->Load<GLTexture>("Textures/Triggers/doorClosed.png");
-	//else if (textureToLoad == 6) resources->Load<GLTexture>("Textures/Backgrounds/CreditScreen.png");
+	else if (textureToLoad == 6) resources->Load<GLTexture>("Textures/Backgrounds/CreditScreen.png");
 	else if (textureToLoad == 7) resources->Load<GLTexture>("Textures/Decorations/barrel.png");
 	else if (textureToLoad == 8) resources->Load<GLTexture>("Textures/Triggers/doorOpen.png");
-	//else if (textureToLoad == 9) resources->Load<GLTexture>("Textures/Backgrounds/StartScreen.png");
+	else if (textureToLoad == 9) resources->Load<GLTexture>("Textures/Backgrounds/StartScreen.png");
 	else if (textureToLoad == 10) resources->Load<GLTexture>("Textures/Traps/log1.png");
 	else if (textureToLoad == 11) resources->Load<GLTexture>("Textures/Traps/log2.png");
 	else if (textureToLoad == 12) resources->Load<GLTexture>("Textures/Traps/rope.png");
@@ -71,8 +71,8 @@ void LoadingScene::LoadTextures(int textureToLoad) {
 	else if (textureToLoad == 28) resources->Load<Sound>("Sounds/SFX/door-slam.wav");
 	else if (textureToLoad == 29) resources->Load<Sound>("Sounds/SFX/grunt.ogg");
 	else if (textureToLoad == 30) resources->Load<GLTexture>("Textures/Backgrounds/SelectedBorder.png");
-	else if (textureToLoad == 6) resources->Load<Music>("Sounds/Tracks/Level Complete - Winner Winner.mp3");
-	else if (textureToLoad == 9) resources->Load<Sound>("Sounds/SFX/guillotine.wav");	
+	else if (textureToLoad == 31) resources->Load<Music>("Sounds/Tracks/Level Complete - Winner Winner.mp3");
+	else if (textureToLoad == 32) resources->Load<Sound>("Sounds/SFX/guillotine.wav");	
 	
 	else  manager->ChangeScene("Title");	
 

@@ -15,7 +15,9 @@ public:
 	void endContact();
 	void moveCharacter(float speed);
 	void FlipSpeed();
-	float speed;	
+	float speed;
+	float isContactRagdoll;
+	bool recentCollision;
 	
 private:
 	GLTexture boxTexture;
@@ -23,10 +25,10 @@ private:
 	GLTexture headSadTexture;
 	GLTexture headTexture;
 	float startTime;
-	float isContactRagdoll;
+	
 	bool audioPlayed;
 	Sound onHitScream;
-	bool recentCollision;
+	
 	void CreateBody(int bodyCount, float x, float y, float w, float h, float angle = 0);
 	void CreateJoint(b2Body* bodyA, b2Body* bodyB, float anchorAX, float anchorAY, float anchorBX, float anchorBY, bool limited, float lowerAngle = 0, float upperAngle = 0);
 	std::vector<b2Vec2> bodyInitialPos;

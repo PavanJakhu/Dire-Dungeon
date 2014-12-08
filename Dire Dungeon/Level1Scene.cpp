@@ -237,6 +237,26 @@ void Level1Scene::Update(GameTime& _gameTime) {
     break;
   }
 
+  if (ironMaiden && ironMaiden->ApplyForce() && ragdoll->playerPosition().x > (ironMaiden->bounds.x/100 - ironMaiden->bounds.z/2) && ragdoll->playerPosition().x < (ironMaiden->bounds.x/100 + ironMaiden->bounds.z/2)) {
+	  if (!(ragdoll->recentCollision)) {
+		  ragdoll->startContact();
+		  trapsHit++;
+	  }
+  }
+  else if (ironMaiden && ironMaiden->triggered  && ragdoll->playerPosition().x > (ironMaiden->bounds.x/100 - ironMaiden->bounds.z/2) && ragdoll->playerPosition().x < (ironMaiden->bounds.x/100 + ironMaiden->bounds.z/2)) {
+	  ragdoll->GetBody(0)->ApplyForceToCenter(b2Vec2(0,800),true);
+	  ragdoll->GetBody(1)->ApplyForceToCenter(b2Vec2(0,-800),true);
+	  ragdoll->GetBody(2)->ApplyForceToCenter(b2Vec2(800,0),true);
+	  ragdoll->GetBody(3)->ApplyForceToCenter(b2Vec2(-800,0),true);
+	  ragdoll->GetBody(4)->ApplyForceToCenter(b2Vec2(-800,0),true);
+	  ragdoll->GetBody(5)->ApplyForceToCenter(b2Vec2(800,0),true);
+  }
+  else if (ironMaiden && ironMaiden->triggered && ragdoll->recentCollision && ragdoll->GetBody(0)->GetType() == b2_dynamicBody)
+  {
+	  if (ragdoll->isContactRagdoll > 0) {
+		ragdoll->endContact();
+	  }
+  }
   // Tester for reloading scene
   /* if (input->KeyPress(SDLK_l)){
   manager->ChangeScene("Level1");*/
@@ -282,6 +302,9 @@ void Level1Scene::UpdateCamera(float xVelocity) {
     sprites[4]->Move(xVelocity, 0.0); // move UI layer
     sprites[8]->Move(xVelocity, 0.0); // move UI Selector
 
+	/*if (ragdoll->recentCollision) {
+		camera->SetPosition(glm::vec2(ragdoll->playerPosition().x*100,0));
+	}*/
  // }
   /*if (camera->GetPosition().x >= 1600) {
     camera->SetPosition(glm::vec2(1600, camera->GetPosition().y ));
